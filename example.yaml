@@ -5,17 +5,17 @@ ignore_files:
 rules:
   - name: whitelist
     terms:
+      - allowlist
+    alternatives:
       - whitelist
       - white-list
-    alternatives:
-      - allowlist
     # severity: warn # disabled to show that error is the default
 
-  - name: blacklist
+  - name: denylist
     terms:
-      - blacklist
-      - black-list
-    alternatives:
       - denylist
       - blocklist
+    alternatives:
+      - blacklist
+      - black-list
     severity: warning

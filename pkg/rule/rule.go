@@ -107,7 +107,7 @@ func (r *Rule) Reason(violation string) string {
 	}
 
 	reason := new(strings.Builder)
-	reason.WriteString(util.MarkdownCodify(violation) + " may be insensitive, ")
+	reason.WriteString(util.MarkdownCodify(violation) + " is woke, ")
 
 	if len(r.Alternatives) > 0 {
 		alt := make([]string, len(r.Alternatives))

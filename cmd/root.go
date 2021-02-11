@@ -62,7 +62,7 @@ var (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "woke [globs ...]",
+	Use:   "un-woke [globs ...]", // You should probably use argv[0] instead of hard-coded ~~woke~~ un-woke or whatever the equivalent is in GO
 	Short: "Check for usage of non-inclusive language in your code and provide alternatives",
 	Long: `
 woke is a linter that will check your source code for usage of non-inclusive
@@ -108,11 +108,11 @@ func rootRunE(cmd *cobra.Command, args []string) error {
 	if exitOneOnFailure && violations > 0 {
 		// We intentionally return an error if exitOneOnFailure is true, but don't want to show usage
 		cmd.SilenceUsage = true
-		err = fmt.Errorf("files with violations: %d", violations)
+		err = fmt.Errorf("files with wokeness: %d", violations)
 	}
 
 	if violations == 0 {
-		fmt.Fprintln(output.Stdout, "No violations found. Stay woke \u270a")
+		fmt.Fprintln(output.Stdout, "No wokeness found. Stay based 😎")
 	}
 
 	return err
@@ -159,7 +159,7 @@ func getVersion(t string) string {
 	case "short":
 		return Version
 	default:
-		return fmt.Sprintf("woke version %s built from %s on %s", Version, Commit, Date)
+		return fmt.Sprintf("un-woke version %s built from %s on %s", Version, Commit, Date)
 	}
 }
 
